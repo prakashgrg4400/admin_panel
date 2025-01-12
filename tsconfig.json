@@ -1,8 +1,10 @@
 {
+    // This key tells , how to compile your typescript code .
     "compilerOptions": {
         // custom path .
-        "baseUrl": ".",
+        "baseUrl": ".", //==> it sets the base directory for your project, meaning the base location is the current folder where "tsconfig.json" is located . It tells typescript start looking for files and folders from this location.
         "paths": {
+            // Here we are creating a alias name , i.e. @ = "./src"
             "@/*": ["./src/*"]
         }
     },

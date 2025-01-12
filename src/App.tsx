@@ -1,13 +1,12 @@
-
-import './App.css'
+import "./App.css";
+import Router from "./router/router";
 
 function App() {
-
-  return (
-    <>
-      <h1>Enirman</h1>
-    </>
-  )
+    return (
+        <>
+            <Router />
+        </>
+    );
 }
 
-export default App
+export default App;
