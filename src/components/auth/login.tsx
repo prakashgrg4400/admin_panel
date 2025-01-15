@@ -1,11 +1,14 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAdminLoginMutation from "../../services/auth/use-admin-login-mutation";
+import { ViewIcon, ViewOffIcon } from "hugeicons-react";
 import * as yup from "yup";
+import { useState } from "react";
 
 interface IFormInput {
     email: string;
     password: string;
-    isRememberMe: boolean;
+    isRememberMe?: boolean;
 }
 
 const schema = yup
@@ -28,9 +31,15 @@ function Login() {
         resolver: yupResolver(schema),
     });
 
-    console.log(errors);
+    const [showPassword , setShowPassword] = useState(false);
+
+    const { mutate : login , isPending } = useAdminLoginMutation();
+
+    // console.log(errors);
+    // console.log(isPending);
     const handleForm: SubmitHandler<IFormInput> = (data) => {
-        console.log(data);
+        // console.log(data);
+        login(data);
     };
 
     return (
@@ -62,12 +71,12 @@ function Login() {
                         <div className="relative border-2 rounded-md">
                             <input
                                 className=" outline-none  py-[5px] px-[5px] text-sm w-[90%]  "
-                                type="password"
+                                type={`${showPassword ? "text" : "password"}`}
                                 id="password"
                                 {...register("password")}
                             />
-                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 cursor-pointer ">
-                                <span>icon</span>
+                            <div onClick={()=>{setShowPassword(curr=>!curr)}} className="absolute right-0 top-1/2 -translate-y-1/2 w-8 cursor-pointer ">
+                                {showPassword ? <ViewOffIcon/> : <ViewIcon/>}
                             </div>
                         </div>
                         {errors.password && (
@@ -89,9 +98,10 @@ function Login() {
                 </fieldset>
                 <button
                     type="submit"
+                    disabled = {isPending}
                     className="bg-blue-500 text-white py-4 font-semibold rounded-[100px] "
                 >
-                    Login
+                    Login {isPending && "..."}
                 </button>
             </form>
         </div>
