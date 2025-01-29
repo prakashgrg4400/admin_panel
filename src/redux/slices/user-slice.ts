@@ -29,7 +29,7 @@ export interface IUser {
     };
 }
 
-interface IUserState {
+export interface IUserState {
     accessToken: string | null;
     user: IUser | null;
     loginStatus: boolean;

@@ -37,7 +37,7 @@ export function setUserLogin(prop: ILogin) {
 
 export function getUserData() {
     const localData = localStorage.getItem(USER_DATA_KEY);
-    const sessionData = sessionStorage.getItem(TOKEN_KEY);
+    const sessionData = sessionStorage.getItem(USER_DATA_KEY);
 
     if (localData) {
         return JSON.parse(localData);
