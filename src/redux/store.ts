@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userSlicer from "./slices/user-slice";
+import projectSlicer from "./slices/project-slice";
 
 const store = configureStore({
     reducer: {
         user: userSlicer,
+        project: projectSlicer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({ serializableCheck: false }),

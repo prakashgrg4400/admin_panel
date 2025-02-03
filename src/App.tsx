@@ -3,6 +3,7 @@ import Router from "./router/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { ToastContainer } from "react-toastify";
 
 const queryClient = new QueryClient();
 function App() {
@@ -13,6 +14,7 @@ function App() {
                     <Router />
                 </QueryClientProvider>
             </Provider>
+            <ToastContainer />
         </>
     );
 }
