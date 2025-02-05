@@ -17,6 +17,7 @@ function useGetPermittedProjectQuery() {
     return useQuery({
         queryKey: ["projects"],
         queryFn: () => getPermittedProjectApi(),
+        refetchOnWindowFocus: false,
     });
 }
 
