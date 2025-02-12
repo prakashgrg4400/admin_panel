@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getToken, getUserData } from "../../utils/auth-storage";
-import { setUserLogin } from "../../utils/auth-storage";
+import {
+    getToken,
+    getUserData,
+    isUserLogin,
+    setUserLogin,
+} from "../../utils/auth-storage";
 
 export interface IUser {
     id: number;
@@ -35,9 +39,9 @@ export interface IUserState {
     loginStatus: boolean;
 }
 const initialState: IUserState = {
-    accessToken: getToken(),
-    user: getUserData(),
-    loginStatus: false,
+    accessToken: getToken() || null,
+    user: getUserData() || null,
+    loginStatus: isUserLogin() || false,
 };
 
 const userSlice = createSlice({

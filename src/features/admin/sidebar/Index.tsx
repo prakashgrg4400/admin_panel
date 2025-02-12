@@ -11,7 +11,7 @@ function Index({ className }: { className: string }) {
     console.log(user);
 
     return (
-        <aside className={`${className} flex flex-col gap-4 p-5`}>
+        <aside className={`${className} flex flex-col gap-4 p-5 h-screen `}>
             <Link to="/admin/dashboard">
                 <img
                     src="https://img.freepik.com/premium-vector/skycraper-construction-logo-illustration-design_221955-129.jpg?semt=ais_hybrid"

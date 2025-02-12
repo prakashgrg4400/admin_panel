@@ -33,6 +33,7 @@ function useAdminLoginMutation() {
                     isRememberMe: data.isRememberMe,
                 })
             );
+
             navigate("/admin/dashboard");
         },
         onError: (err) => {
