@@ -1,6 +1,17 @@
+import { useSelector } from "react-redux";
 import Login from "../../components/auth/login";
+import { RootState } from "../../redux/store";
+import { IUserState } from "../../redux/slices/user-slice";
+import { Navigate } from "react-router-dom";
 
 function AdminLogin() {
+    const { loginStatus } = useSelector<RootState, IUserState>(
+        (state) => state.user
+    );
+
+    if (loginStatus) {
+        <Navigate to={"/admin/dashboard"} />;
+    }
     return (
         <section className="min-h-screen flex flex-col justify-center items-center  ">
             <div className="my-4">

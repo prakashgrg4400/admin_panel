@@ -46,12 +46,16 @@ interface OverDueTask {
 function OverDueTask({ tasks, isLoading }: OverDueTask) {
     const hasTask = tasks && tasks.length > 0;
     return (
-        <div className="bg-white rounded-2xl p-4">
+        <div className="bg-white rounded-2xl p-4 overflow-x-auto ">
             <CardHeader
-                title={`Overdue Tasks (${0})`}
+                title={`Overdue Tasks (${hasTask ? tasks.length : 0})`}
                 description={`List of all overdue tasks from all projects.`}
             />
-            <OverdueTaskTable tasks={tasks} />
+            {isLoading ? (
+                <h1>Loading...</h1>
+            ) : (
+                <OverdueTaskTable tasks={tasks} />
+            )}
         </div>
     );
 }

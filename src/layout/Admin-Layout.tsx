@@ -21,9 +21,9 @@ function AdminLayout({ children }: { children: React.ReactNode }) {
 
     console.log(pathname);
     return (
-        <div className="flex bg-neutral-50">
-            <Sidebar className="bg-[#FFFFFF] w-[256px] h-screen top-0 shadow-md z-10 " />
-            <div className="bg-[#F1F5F9] w-[calc(100vw-256px)] fixed left-[calc(256px)] overflow-y-auto h-screen p-6 md:p-12 ">
+        <div className="flex bg-neutral-50 relative ">
+            <Sidebar className="sticky bg-[#FFFFFF] w-[256px] h-screen top-0 shadow-xl  " />
+            <div className="bg-[#F1F5F9] w-[calc(100vw-256px)]  left-[calc(260px)] fixed overflow-y-auto h-screen p-6 md:p-12 ">
                 {children}
             </div>
         </div>
